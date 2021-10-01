@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/displayTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="right|center_vertical"
+        android:maxLines="1"
+        android:paddingStart="8dp"
+        android:paddingLeft="8dp"
+        android:paddingEnd="8dp"
+        android:paddingRight="8dp"
+        android:singleLine="true"
+        android:text="0"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/displayTextView">
+
+        <Button
+            android:id="@+id/clearButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="2.8"
+            android:contentDescription="Limpar valores"
+            android:text="CLR"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/delButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1.3"
+            android:contentDescription="Excluir valor informado"
+            android:text="Del"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1.3"
+            android:contentDescription="Excluir valor informado"
+            android:text="+"
+            android:textSize="36sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout1">
+
+        <Button
+            android:id="@+id/sevenButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Limpar valores"
+            android:text="7"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/eightButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Excluir valor informado"
+            android:text="8"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/nineButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Excluir valor informado"
+            android:text="9"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/subButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Excluir valor informado"
+            android:text="-"
+            android:textSize="36sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout2">
+
+        <Button
+            android:id="@+id/fourButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Limpar valores"
+            android:text="4"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/fiveButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Excluir valor informado"
+            android:text="5"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/sixButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Excluir valor informado"
+            android:text="6"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/mulButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Excluir valor informado"
+            android:gravity="center"
+            android:text="*"
+            android:textSize="36sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout3">
+
+        <Button
+            android:id="@+id/oneButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Limpar valores"
+            android:text="1"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/twoButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Excluir valor informado"
+            android:text="2"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/threeButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Excluir valor informado"
+            android:text="3"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/divButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Excluir valor informado"
+            android:gravity="center"
+            android:text="/"
+            android:textSize="36sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout4">
+
+        <Button
+            android:id="@+id/plusMinusButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Limpar valores"
+            android:text="+/-"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/zeroButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Excluir valor informado"
+            android:text="0"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/dotButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Excluir valor informado"
+            android:text="."
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/equalsButton"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Excluir valor informado"
+            android:gravity="center"
+            android:text="="
+            android:textSize="36sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
