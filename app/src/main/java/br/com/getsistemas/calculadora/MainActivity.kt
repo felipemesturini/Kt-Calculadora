@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.text.isDigitsOnly
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.NumberFormat
 import java.util.*
@@ -18,17 +19,22 @@ class MainActivity : AppCompatActivity() {
     private var mContent: StringBuilder = StringBuilder()
     private var mOperator: OperationEnum = OperationEnum.NONE
     private var mIsOperatorClicked: Boolean = false
-    private var mIsOperatorActive: Boolean = false
+    private var mOperandAcumulado: Double = 0.00
     private var mOperand1: Double = 0.00
+    private var mOperand2: Double = 0.00
+    private var mOperandTemp: Double = 0.00
     private val mNumberFormat = NumberFormat.getInstance()
+    private var mExpression = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        lifecycle.addObserver(MainObserver())
         mNumberFormat.minimumFractionDigits = 0
         mNumberFormat.maximumFractionDigits = 6
         initializeViews()
         displayResult()
+
     }
 
     private fun initializeViews() {
@@ -66,6 +72,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun dotButtonClick() {
+        if (mContent.isEmpty()) return
+
         if (!mContent.contains(".")) {
             mContent.append(".")
             displayResult()
@@ -90,29 +98,38 @@ class MainActivity : AppCompatActivity() {
         mContent.clear()
         mIsOperatorClicked = false
         mOperator = OperationEnum.NONE
+        mExpression.clear()
+
     }
 
     private fun buttonEqualsClick() {
         if (mContent.isEmpty()) return
-
         val result = calcResult()
         mContent.clear()
         mContent.append(result)
         displayResult()
         mIsOperatorClicked = true
-        mIsOperatorActive = false
         mOperand1 = 0.00
+        mExpression.clear()
+        mOperator = OperationEnum.NONE
     }
 
     private fun operatorButtonClick(button: Button) {
         if (mContent.isEmpty()) return
-        if (mIsOperatorActive) {
-            val result = calcResult()
-            mOperand1 = 0.00
-            mContent.clear()
-            mContent.append(result)
-            displayResult()
-        }
+        
+//        if (mOperator != OperationEnum.NONE) {
+//            if (mOperator == OperationEnum.MUL) {
+//                mOperandTemp = mContent.toString().toDouble()
+//
+//            }
+//            else {
+//                val result = calcResult()
+//                mOperand1 = 0.00
+//                mContent.clear()
+//                mContent.append(result)
+//                displayResult()
+//            }
+//        }
 
         mOperator = when (button.text) {
             "+" -> OperationEnum.ADD
@@ -121,8 +138,14 @@ class MainActivity : AppCompatActivity() {
             "*" -> OperationEnum.MUL
             else -> OperationEnum.NONE
         }
-        mIsOperatorActive = true
+
+        if (mOperator == OperationEnum.MUL) {
+
+        }
+
         mIsOperatorClicked = true
+        mExpression.add(mContent.toString())
+        mExpression.add(mOperator.op)
     }
 
     private fun numberButtonClick(button: Button) {
@@ -132,6 +155,7 @@ class MainActivity : AppCompatActivity() {
             mIsOperatorClicked = false
         }
         mContent.append(button.text)
+        mExpression.add(button.text.toString())
         displayResult()
     }
 
@@ -156,10 +180,26 @@ class MainActivity : AppCompatActivity() {
             OperationEnum.DIV -> mOperand1 / operand2
             else -> 0.00
         }
+
+//        val op1 = ""
+//        val op2 = ""
+//        val result = ""
+//        mExpression.forEach {
+//
+//        }
+    }
+
+
+    private fun parseExpression() {
+        val list = mExpression.listIterator(mExpression.size)
+        while (list.hasPrevious()) {
+            Log.i()
+        }
     }
 
 }
 
-enum class OperationEnum {
-    ADD, SUB, MUL, DIV, NONE
+enum class OperationEnum(val op: String) {
+    ADD("+"), SUB("-"), MUL("*"), DIV("/"), NONE("")
+
 }
